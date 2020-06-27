@@ -33,6 +33,7 @@ For retrieval tasks with many candidates, cross-encoder (concat query + candidat
 It extends BERT with two additional training objectives: 1) Randomly shuffle trigrams of unmasked tokens, and train the model to restore the correct word order (i.e. predict the original unshuffled token). This is trained together with MLM objective. 2) Upgrade the NSP objective to a three-way classification task for the relationship of the sentence pairs: next sentence, previous sentence, or a random sentence from a different document (Each type sampled 1/3 training examples).  
 Adding these two simple objectives significantly improves the performance on downstream tasks compared to corresponding baselines.
 
+
 ## 4. Interpretability and Analysis
 
 ## 5. Machine Reading Comprehension
@@ -41,6 +42,16 @@ Adding these two simple objectives significantly improves the performance on dow
 
 
 ## 6. Practical Tricks
+
+1. **Revisiting Few-sample BERT Fine-tuning**. arXiv 2020. [[pdf](https://arxiv.org/abs/2006.05987)]
+
+Three useful tricks to improve BERT finetuning performance: 1) Adding back the bias-correction steps in BERTAdam optimizer improves stability especially for small datsets (and reduces degenerate runs). 2) Re-initializing the top K (K to be tuned) layers (including pooler layers) speeds up training and improves performance. 3) Training for more iterations (> 3 epochs) improves performance :)
+
+
+2. **ReZero is All You Need: Fast Convergence at Large Depth**. arXiv 2020. [[pdf](https://arxiv.org/abs/2003.04887)]
+
+ReZero is a new technique for training deep neural networks (Transformers, ResNet, etc.), where we add a residual connection for each layer: x<sub>i+1</sub> = x<sub>i</sub> + &alpha;F(x<sub>i</sub>). The trainable parameter &alpha; is initialized as 0 at the beginning so it's just performing the identity operation, but it will dynamically evolve to suitable values during initial stages of training. For the original Transformers, each sublayer is added via a residual connection and then normalized by LayerNorm. We can replace this with ReZero connection. This achieves significant speedup for convergence. 
+
 
 ## 7. Other Tasks
 
