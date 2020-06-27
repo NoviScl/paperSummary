@@ -28,11 +28,15 @@ For retrieval tasks with many candidates, cross-encoder (concat query + candidat
 
 ## 3. New Models 
 
+1. **STRUCTBERT: INCORPORATING LANGUAGE STRUCTURES INTO PRE-TRAINING FOR DEEP LANGUAGE UNDERSTANDING**. ICLR 2020. [[pdf](https://openreview.net/pdf?id=BJgQ4lSFPH)]
+
+It extends BERT with two additional training objectives: 1) Randomly shuffle trigrams of unmasked tokens, and train the model to restore the correct word order (i.e. predict the original unshuffled token). This is trained together with MLM objective. 2) Upgrade the NSP objective to a three-way classification task for the relationship of the sentence pairs: next sentence, previous sentence, or a random sentence from a different document (Each type sampled 1/3 training examples).  
+Adding these two simple objectives significantly improves the performance on downstream tasks compared to corresponding baselines.
+
 ## 4. Interpretability and Analysis
 
 ## 5. Machine Reading Comprehension
 
-1. **Teaching Pre-Trained Models to Systematically Reason Over Implicit Knowledge**. arXiv 2020. [[pdf](https://arxiv.org/pdf/2006.06609.pdf)]
 
 
 
