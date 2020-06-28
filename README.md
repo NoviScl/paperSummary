@@ -12,7 +12,9 @@
 
 ## 1. Adversarial NLP
 
+1. **Combating Adversarial Misspellings with Robust Word Recognition**. ACL 2019. [[pdf](https://www.aclweb.org/anthology/P19-1561.pdf)]
 
+To combat adversarial spelling mistakes, the authors propose placing a word recognition model in front of the downstream classifier. The word recognition model is based on semi-character based RNN (ScRNN) - one hot representations of first and last character in the word + bag-word-characters representations of internal characters. To handle rare and unseen words that the word recognition model predicts UNK, they introduce Backoff strategies: 1) Pass-through: directly pass the (possibly misspelled) word as is; 2) Backoff to neutral word: backing off to a neutral word like ‘a’, which has a similar distribution across classes; 3) Backoff to background model: fall back upon a more generic word recognition model trained upon a larger, less-specialized corpus whenever the foreground word recognition model predicts UNK. The word recognition model is trained to reconstruct the original word from char-attacked inputs. This method improves model robustness significantly under character-level attacks, compared to simple adversarial training baseline.
 
 
 
