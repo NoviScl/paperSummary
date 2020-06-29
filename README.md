@@ -36,11 +36,17 @@ It extends BERT with two additional training objectives: 1) Randomly shuffle tri
 Adding these two simple objectives significantly improves the performance on downstream tasks compared to corresponding baselines.
 
 
-## 4. Interpretability and Analysis
+## 4. Interpretability, Analysis, Bias
 
 1. **Improving Transformer Models by Reordering their Sublayers**. ACL 2020. [[pdf](https://arxiv.org/pdf/1911.03864.pdf)]
 
 In the vanilla Transformer, each layer consists of a self-attention sublayer followed by a feedforward sublayer. The authors analyse the effect of reordering the sublayers by generating random transformer models, varying the number of each type of sublayer, and their ordering, while keeping the number of parameters constant. They find that models with more self-attention toward the bottom and more feedforward sublayers toward the top tend to perform better in general (on LM). Based on this, they propose sandwich transformer: `k` self-attention layers at the bottom, `(n-k)` self-attention + feedforward pairs in the middle, followed by `k` feedforward layers at the top. This model achieves better performance on LM than vanilla transformer, but no significant gains on translation. 
+
+2. **"You are grounded!": Latent Name Artifacts in Pre-trained Language Models**. arXiv 2020. [[pdf](https://arxiv.org/abs/2004.03012)]
+
+The authors used a set of experiments to demonstrate the artifacts associated with names in pretrained language models: 1) Prompt the PLM with given names, the most likely next word predicted by the PLM is the last name of a prominent named entity (e.g., Donald -> Trump); 2) Simple classifiers can easily recover masked given names of frequently discussed people in the media, as compared to other people; 3) Sentiment classifiers given strong negative sentiments to many names of people discussed in the media. Furthermore, they found that name swapping significantly drops model performance on template-based synthetic QA test sets.
+
+
 
 ## 5. Machine Reading Comprehension
 
