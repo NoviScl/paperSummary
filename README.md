@@ -8,7 +8,8 @@
 * [4. Interpretability and Analysis](#4-interpreability-and-analysis)
 * [5. Machine Reading Comprehension](#5-machine-reading-comprehension)
 * [6. Practical Tricks](#6-practical-tricks)
-* [7. Other Tasks](#7-other-tasks)
+* [7. Data Augmentation](#7-data-augmentation)
+* [8. Other Tasks](#8-other-tasks)
 
 ## 1. Adversarial NLP
 
@@ -65,7 +66,17 @@ Three useful tricks to improve BERT finetuning performance: 1) Adding back the b
 ReZero is a new technique for training deep neural networks (Transformers, ResNet, etc.), where we add a residual connection for each layer: x<sub>i+1</sub> = x<sub>i</sub> + &alpha;F(x<sub>i</sub>). The trainable parameter &alpha; is initialized as 0 at the beginning so it's just performing the identity operation, but it will dynamically evolve to suitable values during initial stages of training. For the original Transformers, each sublayer is added via a residual connection and then normalized by LayerNorm. We can replace this with ReZero connection. This achieves significant speedup for convergence. 
 
 
-## 7. Other Tasks
+## 7. Data Augmentation
+
+1. **AdvAug: Robust Adversarial Augmentation for Neural Machine Translation**. ACL 2020. [[pdf](https://www.aclweb.org/anthology/2020.acl-main.529.pdf)]
+
+2. **EDA: Easy Data Augmentation Techniques for Boosting Performance on Text Classification Tasks**. EMNLP 2019. [[pdf](https://arxiv.org/pdf/1901.11196.pdf)]
+
+3. **UNSUPERVISED DATA AUGMENTATION FOR CONSISTENCY TRAINING**. arXiv 2020. [[pdf](https://arxiv.org/pdf/1904.12848.pdf)]
+
+
+
+## 8. Other Tasks
 
 
 
