@@ -68,11 +68,15 @@ ReZero is a new technique for training deep neural networks (Transformers, ResNe
 
 ## 7. Data Augmentation
 
-1. **AdvAug: Robust Adversarial Augmentation for Neural Machine Translation**. ACL 2020. [[pdf](https://www.aclweb.org/anthology/2020.acl-main.529.pdf)]
+1. **Robust Neural Machine Translation with Doubly Adversarial Inputs**. ACL 2019. [[pdf](https://www.aclweb.org/anthology/P19-1425.pdf)]
 
-2. **EDA: Easy Data Augmentation Techniques for Boosting Performance on Text Classification Tasks**. EMNLP 2019. [[pdf](https://arxiv.org/pdf/1901.11196.pdf)]
+2. **AdvAug: Robust Adversarial Augmentation for Neural Machine Translation**. ACL 2020. [[pdf](https://www.aclweb.org/anthology/2020.acl-main.529.pdf)]
 
-3. **UNSUPERVISED DATA AUGMENTATION FOR CONSISTENCY TRAINING**. arXiv 2020. [[pdf](https://arxiv.org/pdf/1904.12848.pdf)]
+First generate adversarial examples of a training instance, then do interpolation of their embeddings (word by word), use the new mixup embeddings for training (training loss: KL-divergence between original model predicted distributions and new predicted distributions with mixup embeddings as input). They also augmented normal data training by doing inpterpolation over randomly sampled training examples. The method achieved significant gains on NMT, especially with the interpolation of adversarial examples' embeddings.
+
+3. **EDA: Easy Data Augmentation Techniques for Boosting Performance on Text Classification Tasks**. EMNLP 2019. [[pdf](https://arxiv.org/pdf/1901.11196.pdf)]
+
+4. **UNSUPERVISED DATA AUGMENTATION FOR CONSISTENCY TRAINING**. arXiv 2020. [[pdf](https://arxiv.org/pdf/1904.12848.pdf)]
 
 
 
